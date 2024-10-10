@@ -69,7 +69,12 @@
          3. The triggerDisplay text is updated to show the latest value for currentAmmo
          NOTE: the "event" placeholder variable in the parenthesis needs to be there for a function to work when it is executed by a  click or any other type of event listener.
         */
-        function shoot(event) {
+        function shoot(event) 
+        {
+            if(currentAmmo > 0){console.log(`BANG`)}
+            else{console.log(`CLICK`)}
+            triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
+
             currentAmmo--
             if (currentAmmo < 0) {
                 currentAmmo = 0;
@@ -102,6 +107,7 @@
             triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
 
         }
+        
 
 
 
