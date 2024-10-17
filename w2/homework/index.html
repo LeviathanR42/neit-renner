@@ -93,20 +93,48 @@
             d. EXTRA CHALLENGE: Figure out how much ammo to load. This will require some math based on how much ammo has been expended and the maximum amount ammo the weapon can hold
         --------------------------------------------------*/
         reloadButton.addEventListener(`click`, reload)
-        function reload(event) {
-
-            if (inventory > 6){
-                currentAmmo = 6;
-                inventory -= 6;
-            }
-            else{
-                currentAmmo = inventory;
-                inventory = 0;
-            }
-            reloadDisplay.innerHTML = `INVENTORY: ${inventory}`
-            triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
-
+        // function reload(event) 
+        
+        {
+          
+        if (inventory > 6){
+            currentAmmo = 6;
+            inventory -= 6;
         }
+        else{
+            currentAmmo = inventory;
+            inventory = 0;
+        }
+        reloadDisplay.innerHTML = `INVENTORY: ${inventory}`
+        triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
+        }
+
+
+        //     if(inventory < max- currentAmmo)
+        //     {
+        //         currentAmmo += inventory 
+        //         inventory -=inventory
+        //     }
+        //     else 
+        //     {
+        //         console.log(`RELOAD`)
+        //         inventory -= (max - currentAmmo)
+        //         // b. add ammo to the current ammo
+        //         currentAmmo += (max-currentAmmo)
+        //     }
+        
+
+        //     //stop inventory from going into the negative numbers 
+
+        // if(inventory <=0)
+        // {
+        //     console.log(`UH OH, YOU'RE OUT`)
+        //     inventory = 0
+        // }
+        //     reloadDisplay.innerHTML = `INVENTORY: ${inventory}`
+        //     triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
+        // }    
+       
         
 
 
