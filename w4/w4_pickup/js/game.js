@@ -105,7 +105,7 @@ function main()
         /*----------INSTRUCTION------------
         increase the score by one
         -----------------------------------*/
-        score = score + 1
+        score++;
     }
 
     for(var i=0; i<pickups.length; i++)
@@ -117,7 +117,7 @@ function main()
             {
                 pickups[i].x = 1000;
                 avatar.color = pickups[i].color
-                score = score +1
+                score++;
             }
         pickups[i].render();
     }
