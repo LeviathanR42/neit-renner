@@ -7,28 +7,34 @@ Game Setup
 -------------------------------------------*/
 var c = document.querySelector(`canvas`)
 var ctx = c.getContext(`2d`)
+
+
 var fps = 1000/60
 var timer = setInterval(main, fps)
 
 
-/*------------Declare Variables Here--------*/
 
+/*------------Declare Variables Here--------*/
+//avatar
 var avatar = new GameObject();
-avatar.color = `#ff0099`;
+avatar.color = `#613613`;
 avatar.vx = 2;
 avatar.vy = 2;
 
-var amt = 30;
+//sheep
+var amt = 50;
 var sheep = [];
 for(var i=0; i<amt; i++)
     {
        console.log(`baaa! ${i}`)
        sheep[i] = new GameObject();
-       sheep[i].color = `#000000`;
+       sheep[i].color = `#ffffff`;
+       
        sheep[i].w = 18; 
        sheep[i].h = 18;
-       sheep[i].x = rand(0, c.width);
-       sheep[i].y = rand(0, c.height);
+       sheep[i].x = rand(150, c.width);
+       sheep[i].y = rand(150, c.height);
+       
         
         while(sheep[i].isOverPoint(avatar))
         {
@@ -43,6 +49,8 @@ for(var i=0; i<amt; i++)
         }
     };
 
+//gate
+var gate = c.getContext(`2d`)
 
 
 /*--------------main()------------------------
@@ -52,8 +60,39 @@ This is the function that makes the game work
 function main()
 {
     //erases the screen
-    ctx.clearRect(0,0,c.width,c.height); 
+    ctx.clearRect(0,0,c.width,c.height);  
+    ctx.fillStyle = `#68bf4d`;
+    ctx.fillRect(0,0,c.width,c.height);
+    //gate
+    gate.beginPath()
+    gate.moveTo(0,0)
+    gate.lineTo(150,0)
+    gate.lineTo(150,130)
 
+    
+    gate.strokeStyle = "rgb(32,32,32)"
+    gate.lineWidth = 5
+
+
+    
+    gate.stroke()
+    gate.closePath()
+
+    gate.beginPath()
+    gate.moveTo(0,0)
+    gate.lineTo(0,150)
+    gate.lineTo(130,150)
+
+
+    gate.strokeStyle = "rgb(32,32,32)"
+    gate.lineWidth = 5
+
+
+
+    gate.stroke()
+    gate.closePath()
+
+   
     //Any changes to numbers
     if(d==true){ avatar.x += avatar.vx; }
     if(a==true){ avatar.x += -avatar.vx;}
@@ -71,14 +110,17 @@ function main()
             if(sheep[i].overlaps(avatar))
                 {
                     console.log(`boop!`)
-                    sheep[i].x = avatar;
+                    sheep[i].x = 100;
+                    sheep[i].y = 100;
                     
                 }
             sheep[i].render();
          }
          avatar.render();
+
+         
 }
- 
+
 
 //random number generator
 function rand(_low, _high)
@@ -116,8 +158,8 @@ function rand(_low, _high)
 
 //To get a and b (displacement) when you know two points
 //  
-//    a = destination.x - starting.x
-//    b = destination.y - starting.y
+//    a = destination.x - gateting.x
+//    b = destination.y - gateting.y
 //
 //To get the total distance (hypotenuese) between two points
 //    c = Math.sqrt(_a*_a + _b*_b)

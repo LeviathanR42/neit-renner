@@ -7,6 +7,8 @@ Game Setup
 -------------------------------------------*/
 var c = document.querySelector(`canvas`)
 var ctx = c.getContext(`2d`)
+ctx.fillStyle = `#008000ff`
+ctx.fillRect(0, 0, c.width, c.height)
 var fps = 1000/60
 var timer = setInterval(main, fps)
 
@@ -115,7 +117,7 @@ function main()
         -----------------------------------*/
         if(pickups[i].overlaps(avatar))
             {
-                pickups[i].x = +1;
+                pickups[i].x = (1,1);
                 avatar.color = pickups[i].color
                 
             }

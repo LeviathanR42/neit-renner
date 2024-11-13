@@ -17,9 +17,9 @@
     <div id="instructions">
         <h2>INSTRUCTIONS</h2>
         <p>
-            In this program you will make the avatar move the sheep into the gated area before the time runs out
+            In this game you will make the avatar move the sheep into the gated area before the time runs out.
         </p>
-        <p>
+        <!-- <p>
             You will then display the total on the canvas<br>
             <b>NOTE:</b> <i>You only need to edit the game.js file, but you can and should look at the other two .js files.</i>
         </p>
@@ -39,8 +39,37 @@
             There is an example pickup which is blue. The code for picking it up is already programmed so that you can see how the overlaps() method works
         </p>
         <p>
-            You will need to research how to display text on the screen
+            You will need to research how to display text on the screen -->
         </p>
+        <p>You have: <span id="timer">
+                        <!-- Display the countdown timer in an element -->
+            <p id="demo"></p>
+
+
+            </script>
+                    </span> 
+                    <!-- Display the countdown timer in an element -->
+            <p id="demo"></p>
+
+            <script>
+     
+            let timeLeft = 60;
+            const timerElement = document.getElementById("timer");
+            const intervalId = setInterval(() => {
+                if (timeLeft>= 0) {
+                    timerElement.textContent = timeLeft;
+                    timeLeft--;
+                } else {
+                    clearInterval(intervalId);
+                    timerElement.textContent = "Time's Up!";
+                }
+            }, 1000);
+            </script>seconds remaining!</p>
+
+        
+
+        
+       
     </div>
     <!--controls.js contains the keyboard events and variables for movement-->
     <script src="js/controls.js"></script>
@@ -50,3 +79,4 @@
     <script src="js/game.js"></script>
 </body>
 </html>
+
