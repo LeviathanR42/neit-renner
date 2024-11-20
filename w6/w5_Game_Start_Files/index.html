@@ -5,71 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Car Game Files</title>
+    <title>Head BAAAck Home</title>
    
 </head>
 <body>
     <div>
-        <h2>Controls | <span>Use the w,a,s and d keys to move the avatar</span></h2>
+        <h2>Controls | <span>Use the w,a,s and d keys to move!</span></h2>
         <canvas width="800" height="500"></canvas>
     </div>
    
     
     <div id="instructions">
-        <h2>INSTRUCTIONS</h2>
+        <h2>Head BAAAck Home</h2>
         <p>
-            In this game you will make the avatar move the sheep into the gated area before the time runs out.
-        </p>
-        <!-- <p>
-            You will then display the total on the canvas<br>
-            <b>NOTE:</b> <i>You only need to edit the game.js file, but you can and should look at the other two .js files.</i>
+            You are a retired wizard.  Switching hats, you are now enjoying life on the countryside as a cowboy.  However, your sheep keep escaping.
         </p>
         <p>
-            This game contains a game object with collision detection capabilities.
-            The collision method is called "overlaps()"<br>
-            REMINDER:<i>(a method is a function in an object).</i><br>
+            You can teleport the sheep into the gated area by booping them. Move the sheep into that area before the time runs out and they dissapear forever...
         </p>
         <p>
-            <ul>
-                <li>Read the notes in the game.js file</li>
-                <li>Comments labeled INSTRUCTIONS are the ones prompting you to write JavaScript</li>
-                <li>Write your JavaScript below the INSTRUCTIONS comments</li>
-            </ul>
+            Good Luck!
         </p>
-        <p>
-            There is an example pickup which is blue. The code for picking it up is already programmed so that you can see how the overlaps() method works
-        </p>
-        <p>
-            You will need to research how to display text on the screen -->
-        </p>
-        <p>You have: <span id="timer">
-                        <!-- Display the countdown timer in an element -->
-            <p id="demo"></p>
+        <!-- Display the countdown timer in an element -->
+        <p>You have: <span id="timer"> </span></p>
+            <p>seconds remaining!</p>
+            <h3 id="announce"></h3>
 
-
-            </script>
-                    </span> 
-                    <!-- Display the countdown timer in an element -->
-            <p id="demo"></p>
-
-            <script>
-     
-            let timeLeft = 60;
-            const timerElement = document.getElementById("timer");
-            const intervalId = setInterval(() => {
-                if (timeLeft>= 0) {
-                    timerElement.textContent = timeLeft;
-                    timeLeft--;
-                } else {
-                    clearInterval(intervalId);
-                    timerElement.textContent = "Time's Up!";
-                }
-            }, 1000);
-            </script>seconds remaining!</p>
-
-        
-
-        
        
     </div>
     <!--controls.js contains the keyboard events and variables for movement-->
@@ -80,4 +41,3 @@
     <script src="js/game.js"></script>
 </body>
 </html>
-

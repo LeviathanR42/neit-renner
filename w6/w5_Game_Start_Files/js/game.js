@@ -1,3 +1,4 @@
+
 /*-------------------------------------------
 Game Setup
  1. canvas 
@@ -7,12 +8,8 @@ Game Setup
 -------------------------------------------*/
 var c = document.querySelector(`canvas`)
 var ctx = c.getContext(`2d`)
-
-
 var fps = 1000/60
 var timer = setInterval(main, fps)
-
-
 
 /*------------Declare Variables Here--------*/
 //avatar
@@ -24,6 +21,7 @@ avatar.vy = 2;
 //sheep
 var amt = 50;
 var sheep = [];
+var sheepCount = 0
 for(var i=0; i<amt; i++)
     {
        console.log(`baaa! ${i}`)
@@ -49,9 +47,15 @@ for(var i=0; i<amt; i++)
         }
     };
 
-//gate
+
+
+
+//Gate
 var gate = c.getContext(`2d`)
 
+
+//game announcement
+var announce = document.getElementById(`announce`)
 
 /*--------------main()------------------------
 This is the function that makes the game work
@@ -61,20 +65,17 @@ function main()
 {
     //erases the screen
     ctx.clearRect(0,0,c.width,c.height);  
+    //Background color
     ctx.fillStyle = `#68bf4d`;
     ctx.fillRect(0,0,c.width,c.height);
+
     //gate
     gate.beginPath()
     gate.moveTo(0,0)
     gate.lineTo(150,0)
     gate.lineTo(150,130)
-
-    
     gate.strokeStyle = "rgb(32,32,32)"
-    gate.lineWidth = 5
-
-
-    
+    gate.lineWidth = 3
     gate.stroke()
     gate.closePath()
 
@@ -82,45 +83,66 @@ function main()
     gate.moveTo(0,0)
     gate.lineTo(0,150)
     gate.lineTo(130,150)
-
-
     gate.strokeStyle = "rgb(32,32,32)"
-    gate.lineWidth = 5
-
-
-
+    gate.lineWidth = 3
     gate.stroke()
     gate.closePath()
-
-   
+    
     //Any changes to numbers
     if(d==true){ avatar.x += avatar.vx; }
     if(a==true){ avatar.x += -avatar.vx;}
     if(w==true){ avatar.y += -avatar.vy;}
     if(s==true){ avatar.y += avatar.vy; }
+
     //Any collision detection 
     if(avatar.x < 0 + avatar.w/2){avatar.x = 0 + avatar.w/2;}
     if(avatar.x > c.width + -avatar.w/2){avatar.x = c.width + -avatar.w/2;}
     if(avatar.y < 0 + avatar.h/2){avatar.y = 0 + avatar.h/2;}
     if(avatar.y > c.height + -avatar.h/2){avatar.y = c.height + -avatar.h/2;} 
-    //draw the pictures
+
+    //Collection of Sheep
     for(var i=0; i<sheep.length; i++)
         {
             
             if(sheep[i].overlaps(avatar))
                 {
                     console.log(`boop!`)
-                    sheep[i].x = 100;
-                    sheep[i].y = 100;
-                    
+                    sheep[i].x = rand(10, 140);
+                    sheep[i].y = rand(10, 140);
+                    sheepCount++;
+                    console.log(`you got another 1!`)
                 }
             sheep[i].render();
          }
          avatar.render();
-
          
+    
 }
 
+//timer
+    let timeLeft = 5;
+    const timerElement = document.getElementById("timer");
+    const intervalId = setInterval(() => {
+        if (timeLeft>= 0) {
+            timerElement.textContent = timeLeft;
+            timeLeft--;
+        //sheep all in gate
+            if (sheepCount == amt) {
+                console.log(`all sheep in gate`)
+                announce.innerHTML = `Huzzah!`
+                clearInterval(intervalId);
+                timerElement.textContent = "0";
+            } 
+        }
+        else {
+            console.log(`time's up!`)
+            clearInterval(intervalId);
+            timerElement.textContent = "0";
+            
+        }
+        
+    }, 1000);
+    
 
 //random number generator
 function rand(_low, _high)
@@ -129,7 +151,7 @@ function rand(_low, _high)
 }
 //Converts degrees to radians
 function radians(_deg)
-{
+{+9
     return _deg * Math.PI/180
 }
 
@@ -139,34 +161,7 @@ function degrees(_rad)
     return _rad * 180/Math.PI
 }
 
-
-
 function rand(_low, _high)
 {
     return Math.random()*(_high - _low) + _low;
 }
-//-------Diagram--------
-//
-//              /|        c = the hypoteneuse
-//            c / |        b = height
-//             /  | b      a = width
-//            /   |        T = arch tangent angle
-//           /T___|
-//             a
-//
-//--------------------------
-
-//To get a and b (displacement) when you know two points
-//  
-//    a = destination.x - gateting.x
-//    b = destination.y - gateting.y
-//
-//To get the total distance (hypotenuese) between two points
-//    c = Math.sqrt(_a*_a + _b*_b)
-
-//To get the arc tangent angle (labeled T in the diagram)
-//    radians = Math.atan2(b, a)
-
-//To find a and b if you know c and T
-//    a = Math.cos(T) * c
-//    b = Math.sin(T) * c
