@@ -9,13 +9,16 @@ class GameObject
      //object angle
      this.angle = 0;
      //object dimensions
-     this.w=50;
+     this.w=30;
      this.h=50;
      //object velocity
      this.vx=0;
      this.vy=0;
     //object color
      this.color = `hotpink`  
+     this.image = null
+
+     
     }
 
     //Draws a rectangle 
@@ -25,7 +28,8 @@ class GameObject
             ctx.fillStyle = this.color
             ctx.translate(this.x, this.y)
             ctx.rotate(this.angle*Math.PI/180)
-            ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h)
+            if(this.image != null) {ctx.drawImage(this.image,-this.w/2, -this.h/2, this.w, this.h )}
+            else {ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h)}
         ctx.restore();
     }
 
@@ -72,7 +76,6 @@ class GameObject
         }
         return false;
     }
-   
     isOverPoint(_point)
     {
         if(
@@ -85,4 +88,5 @@ class GameObject
             return true
         }
         return false; 
-    }}
+    }
+}

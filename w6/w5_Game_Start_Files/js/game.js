@@ -11,17 +11,31 @@ var ctx = c.getContext(`2d`)
 var fps = 1000/60
 var timer = setInterval(main, fps)
 
+
 /*------------Declare Variables Here--------*/
+
+//constant
+
+
+
+
 //avatar
 var avatar = new GameObject();
 avatar.color = `#613613`;
+var avatarImage = new Image ()
+avatarImage.src = "images/cowboy.png"
 avatar.vx = 2;
 avatar.vy = 2;
+avatar.hasImage = true
+avatar.image= avatarImage
 
 //sheep
 var amt = 50;
 var sheep = [];
 var sheepCount = 0
+var sheepImage = new Image ()
+sheepImage.src = "images/sheep.png"
+
 for(var i=0; i<amt; i++)
     {
        console.log(`baaa! ${i}`)
@@ -32,10 +46,13 @@ for(var i=0; i<amt; i++)
        sheep[i].h = 18;
        sheep[i].x = rand(150, c.width);
        sheep[i].y = rand(150, c.height);
+       sheep[i].hasImage = true
+       sheep[i].image= sheepImage
        
         
         while(sheep[i].isOverPoint(avatar))
         {
+            console.log("boop?")
             if(sheep[i].x < avatar.x)
             {
                sheep[i].x-=1;
@@ -65,28 +82,7 @@ function main()
 {
     //erases the screen
     ctx.clearRect(0,0,c.width,c.height);  
-    //Background color
-    ctx.fillStyle = `#68bf4d`;
-    ctx.fillRect(0,0,c.width,c.height);
-
-    //gate
-    gate.beginPath()
-    gate.moveTo(0,0)
-    gate.lineTo(150,0)
-    gate.lineTo(150,130)
-    gate.strokeStyle = "rgb(32,32,32)"
-    gate.lineWidth = 3
-    gate.stroke()
-    gate.closePath()
-
-    gate.beginPath()
-    gate.moveTo(0,0)
-    gate.lineTo(0,150)
-    gate.lineTo(130,150)
-    gate.strokeStyle = "rgb(32,32,32)"
-    gate.lineWidth = 3
-    gate.stroke()
-    gate.closePath()
+    
     
     //Any changes to numbers
     if(d==true){ avatar.x += avatar.vx; }
@@ -107,12 +103,15 @@ function main()
             if(sheep[i].overlaps(avatar))
                 {
                     console.log(`boop!`)
-                    sheep[i].x = rand(10, 140);
-                    sheep[i].y = rand(10, 140);
+                    sheep[i].x = rand(20, 130);
+                    sheep[i].y = rand(20, 130);
                     sheepCount++;
                     console.log(`you got another 1!`)
                 }
             sheep[i].render();
+
+
+
          }
          avatar.render();
          
@@ -120,7 +119,7 @@ function main()
 }
 
 //timer
-    let timeLeft = 5;
+    let timeLeft = 60;
     const timerElement = document.getElementById("timer");
     const intervalId = setInterval(() => {
         if (timeLeft>= 0) {
