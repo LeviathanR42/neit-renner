@@ -14,7 +14,7 @@ wiz.force=1
 
 //The ground
 var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2-200,height:64,y:canvas.height-32, color:"green", world:level})
-ground.img.src=`images/ground.png`
+ground.img.src=`images/ground1.png`
 
 //A platform
 var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"green", world:level})
@@ -90,7 +90,7 @@ for(let i=0; i<100; i++)
 	//bullets[i].img.src="images/mrt.jpg"
 	bullets[i].makeSprite(playerData)
 	bullets[i].y=-10000
-	bullets[i].changeState(`walk`)
+	bullets[i].changeState(`bullet`)
 }
 
 //console.log(bullets)
