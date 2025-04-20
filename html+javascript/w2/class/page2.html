@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W2D1 | Page 2</title>
+
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #header {
+            background-color: rgb(1, 1, 144);
+            color: white;
+            text-align:center
+        }
+    </style>
+</head>
+<body>
+    <!--HTML content goes in the body element-->
+
+    <!--BLOCK LEVEL ELEMENTS: creates structure of the page-->
+    <div id="wrapper">
+        <!--DIV elements are used to organize *other* HTML elements-->
+        <!--HEADER DIV-->
+        <div id="header">
+
+            <h1> Week 2 | HTML & JS Practice</h1>
+        </div>
+        <!--NAV DIV-->
+        <div id="nav">
+
+            <!--ABSOLUTE PATH TO AN *EXTERNAL* (outside of our site) LINK/PAGE-->
+            <a href="https://www.neit.edu">Visit NEIT</a>
+
+            <!--RELATIVE PATH TO AN *INTERNAL* (inside of our site) LINK/PAGE-->
+
+            <a href="page2.html">My Page 2</a>
+
+            <a href="index.html">Home Page</a> <!--refreshed index; supports page 2 links-->
+
+        </div>
+        <!--CONTENT DIV-->
+        <div id="content">
+
+            <h3> The <u>Page 2</u> of Simple W2 Website</h3>
+
+        </div>
+        <!--FOOTER DIV-->
+        <div id="footer">
+
+            <p>
+               &copy; L RENNER | <span id="className">GDS111.10</span> | 202510
+            </p>
+
+        </div>
+    </div>
+</body>
+</html>
