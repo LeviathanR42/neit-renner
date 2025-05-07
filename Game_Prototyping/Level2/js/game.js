@@ -161,3 +161,4 @@ function animate()
     player1.drawRect();
     player2.drawRect();
 }
+//AHGHHHHHHHHHHH
