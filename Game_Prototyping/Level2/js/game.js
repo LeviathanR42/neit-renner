@@ -7,6 +7,7 @@ var interval = 1000/60;
 var force = 1;
 var ball;
 var player1;
+var player2;
 
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");  
@@ -16,6 +17,12 @@ var player1;
     player1.width = 25;
     player1.height = 125;
     player1.x = 50;
+
+    player2 = new GameObject();
+
+    player2.width = 25;
+    player2.height = 125;
+    player2.x = 950;
 
     ball= new GameObject();
     //------Declare the ball's speed on the x and y axis------
@@ -40,6 +47,14 @@ function animate()
     if (s) {
         console.log("Moving Down");
         player1.y += 2;
+    }
+    if (Up) {
+        console.log("Moving UP");
+        player2.y += -2;
+    }
+    if (Down) {
+        console.log("Moving Down");
+        player2.y += 2;
     }
    
     //---------------------------------------------------      
@@ -92,6 +107,14 @@ function animate()
         {
             player1.y = canvas.height + -player1.height/2;
         }
+        if(player2.y < 0 + player2.height/2)
+            {
+                player2.y = 0 + player2.height/2;
+            }
+        if(player2.y > canvas.height + -player2.height/2)
+            {
+                player2.y = canvas.height + -player2.height/2;
+            }
 
         //ball collosion with paddle
         if(player1.hitObject(ball))
@@ -113,9 +136,28 @@ function animate()
                         ball.vy = -ball.vy +force
                     }
             }
-
+            if(player2.hitObject(ball))
+                {
+                     //ball hits top
+                     if(ball.y < player2.y - player2.height/6)
+                     {
+                       ball.vx = -ball.vx + force;//positive speed;
+                       ball.vy =  -ball.vy - force;//negative speed;
+                     }
+                     //middle
+                    else if(ball.y < player2.y + player2.height/3)
+                        {
+                          ball.vx = -ball.vx - force;//positive speed;
+                            //ball.vy =  -ball.vy - force;//negative speed;
+                        }
+                        else{
+                            ball.vx = - ball.vx + force;
+                            ball.vy = -ball.vy +force
+                        }
+                }
 
 
     ball.drawCircle();
     player1.drawRect();
+    player2.drawRect();
 }

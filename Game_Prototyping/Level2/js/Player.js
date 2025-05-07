@@ -78,6 +78,8 @@ function GameObject()
 }
     var w = false;
     var s = false;
+    var Up = false;
+    var Down = false;
 
     //Add Event Listeners
     document.addEventListener("keydown", press);
@@ -95,6 +97,12 @@ function GameObject()
         if (e.keyCode == 83) {
             s = true;
         }
+        if (e.keyCode == 38) {
+            Up = true;
+        }
+        if (e.keyCode == 40) {
+            Down = true;
+        }
     }
 
     function release(e)
@@ -107,8 +115,13 @@ function GameObject()
         if (e.keyCode == 83) {
             s = false;
         }
+        if (e.keyCode == 38) {
+            Up = false;
+        }
+        if (e.keyCode == 40) {
+            Down = false;
+        }
     }
-
         //Limiting player to canvas
     if(player1.y < 0 + player1.height/2)
         {
@@ -117,4 +130,13 @@ function GameObject()
     if(player1.y > canvas.height + -player1.height/2)
         {
             player1.y = canvas.height + -player1.height/2;
+        }
+
+    if(player2.y < 0 + player2.height/2)
+        {
+            player2.y = 0 + player2.height/2;
+        }
+    if(player2.y > canvas.height + -player2.height/2)
+        {
+            player2.y = canvas.height + -player2.height/2;
         }

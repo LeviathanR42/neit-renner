@@ -30,7 +30,7 @@ avatar.hasImage = true
 avatar.image= avatarImage
 
 //sheep
-var amt = 50;
+var amt = 100;
 var sheep = [];
 var sheepCount = 0
 var sheepImage = new Image ()
