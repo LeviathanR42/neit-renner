@@ -122,21 +122,4 @@ function GameObject()
             Down = false;
         }
     }
-        //Limiting player to canvas
-    if(player1.y < 0 + player1.height/2)
-        {
-            player1.y = 0 + player1.height/2;
-        }
-    if(player1.y > canvas.height + -player1.height/2)
-        {
-            player1.y = canvas.height + -player1.height/2;
-        }
-
-    if(player2.y < 0 + player2.height/2)
-        {
-            player2.y = 0 + player2.height/2;
-        }
-    if(player2.y > canvas.height + -player2.height/2)
-        {
-            player2.y = canvas.height + -player2.height/2;
-        }
+        

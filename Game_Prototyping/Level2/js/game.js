@@ -8,6 +8,9 @@ var force = 1;
 var ball;
 var player1;
 var player2;
+var p1Wins = 0;
+var p2Wins = 0;
+var img = document.getElementById("ric");
 
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");  
@@ -66,15 +69,18 @@ function animate()
 
         //Change ball to random color
         ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
+        p1Wins++
+        console.log('ONE')
     }
     //Bounce Ball off Left
     if(ball.x < ball.width/2)
         {
             ball.x = canvas.width/2
             ball.y = canvas.height/2;
-
             //Change ball to random color
             ball.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
+            p2Wins++
+            console.log('TWO')
         }
        
     //Bounce Ball off Top
@@ -154,11 +160,30 @@ function animate()
                             ball.vx = - ball.vx + force;
                             ball.vy = -ball.vy +force
                         }
+                        
                 }
 
+    
+
+    context.fillText(`Player 1 | Player 2` , 401, 45);
+    context.fillText(`${p1Wins} - ${p2Wins}`, 484, 90);
+    context.font = `30px Times New Roman`;
+
+    context.save();
+    context.strokeStyle = "black";
+    context.beginPath();
+    context.moveTo(512,0);
+    context.lineTo(512,800);
+    context.closePath();
+    context.lineWidth = 10; 
+    context.stroke();
+    context.restore();
 
     ball.drawCircle();
     player1.drawRect();
     player2.drawRect();
+
+    context.drawImage(ric, ball.x-50, ball.y-60, ball.width, ball.height);
+
 }
 //AHGHHHHHHHHHHH
