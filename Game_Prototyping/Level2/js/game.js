@@ -183,7 +183,6 @@ function animate()
     player1.drawRect();
     player2.drawRect();
 
-    context.drawImage(ric, ball.x-50, ball.y-60, ball.width, ball.height);
-
+    
 }
 //AHGHHHHHHHHHHH
