@@ -129,7 +129,7 @@ function animate()
 	
 	
 	
-	//---------Objective: Jump the gap to get the blue pearl----------------------------------------------------------------------------------------------------
+	//---------Objective: Jump the gap to get the blue pearl-----------------------------------------------------------------------------------------------
 	//---------Call the players drawDebug() function to see where his current hitpoints are
 	//---------Change the objects in the hitTestPoint function so that the player has a hitpoint on his bottom left and bottom right.
 	//---------You will need to manually draw these new points if you want to see them for debugging purposes.
@@ -154,7 +154,7 @@ function animate()
 		player.canJump = true;
 	}
 	
-	if(player.hitTestObject(goal))
+	if(player.hitTestPoint(goal))
 	{
 		console.log("WOOO!");
 		goal.y = 100000;
