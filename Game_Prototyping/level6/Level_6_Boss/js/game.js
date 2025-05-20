@@ -13,12 +13,6 @@ avatar.color = `#ff0099`;
 avatar.vx = 2;
 avatar.vy = 2;
 
-var collect = new GameObject();
-collect.x = 100;
-collect.y = 100;
-collect.w = 18;
-collect.h = 18;
-collect.color = `#2244ff`;
 
 var minutes = 0
 var seconds = 60
@@ -110,11 +104,11 @@ function main()
         score++;
     }
 //win function
-    if (score == 51 && seconds > 0)
+    if (score == 50 && seconds > 0)
     {
         ctx.fillText(`YOU WIN`, 300, 70)
     }
-    if (seconds == 0)
+    if (seconds == 0 && score < 50)
     {
     ctx.fillText(`You Lose...`, 300, 70)
     }
