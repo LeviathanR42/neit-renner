@@ -98,6 +98,17 @@ states["start"] = function()
 		context.fillText("Collection Game", canvas.width/2-20, 100)
 		context.fillText("Levi Renner", canvas.width/2-20, 200)
 	context.restore();
+
+	context.save();
+		
+		context.font = "bold 18px Arial"
+		context.textAlign = "center";
+		
+		context.fillStyle = "black";
+		context.fillText("Collect all of the little squares before the time runs out. ", canvas.width/2-20, 500)
+		context.fillText("You will get smaller as you get closer to your goal.  You better be good at keyboarding...", canvas.width/2-20, 600)
+		
+	context.restore();
 	
 }
 
