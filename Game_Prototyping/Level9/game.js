@@ -44,11 +44,12 @@ function changeStates(stateName)
 
  function startgame()
 {
+
 	var dx = button.x - mouse.x;
 	var dy = button.y - mouse.y;
 	var dist = Math.sqrt(dx*dx + dy * dy);
 	console.log("startgame")
-	
+
 	seconds=60
 
 	if(dist < button.width)
@@ -86,6 +87,16 @@ states["start"] = function()
 		context.fillStyle = "black";
 		context.fillText("Start", canvas.width/2-20, canvas.height/2)
 		
+	context.restore();
+	
+	context.save();
+		
+		context.font = "bold 58px Arial"
+		context.textAlign = "center";
+		
+		context.fillStyle = "black";
+		context.fillText("Collection Game", canvas.width/2-20, 100)
+		context.fillText("Levi Renner", canvas.width/2-20, 200)
 	context.restore();
 	
 }
