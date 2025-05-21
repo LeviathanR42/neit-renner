@@ -190,7 +190,7 @@ states["play"] = function()
 	if (seconds>0){
 		context.fillText(`Count Down: ${seconds}`, 600, 60)
 	}
-	if (seconds == 0 && score != 50){
+	if (seconds == 0 && score != 51){
 		context.fillText(`YOU LOSE!` , canvas.width/2-150, canvas.height/2);
 	}
 
