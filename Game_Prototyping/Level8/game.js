@@ -3,8 +3,6 @@ var context;
 var timer;
 var interval = 1000/60;
 
-
-
 var force = 1;
 var player
 var score = 0;
@@ -33,7 +31,7 @@ var grab = []
 		grab[i].height = 20
 		grab[i].x = rand(0, canvas.width)
 		grab[i].y = rand(0, canvas.height)
-		grab[i].color ='yellow'
+		grab[i].color ='teal'
 		
 		
 		
